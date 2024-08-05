@@ -16,11 +16,13 @@ headers = {
 
 prod_list = []
 
+
 def create_table(file_name):
     fields = Fields().as_list()
     is_table = csv_opt.create_csv(file_name, fields)
 
     return is_table
+
 
 def amazon_get_product(link):
     options = webdriver.EdgeOptions()
