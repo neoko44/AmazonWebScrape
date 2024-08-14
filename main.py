@@ -35,6 +35,7 @@ def amazon_get_product(url):
     # returns false in DataResult
     try:
         driver.get(url)
+
     except Exception as e:
         return DataResult(status=False,
                           message=e,
