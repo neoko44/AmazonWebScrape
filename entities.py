@@ -12,6 +12,9 @@ class Product:
     def as_data(self):
         return [self.title, self.price, self.currency, self.category, self.date]
 
+    def to_dict(self):
+        return dict(title=self.title, price=self.price, currency=self.currency, category=self.category, date=self.date)
+
 
 class Result:
     def __init__(self, status, message):
@@ -19,14 +22,14 @@ class Result:
         self.message = message
 
 
-class Fields:
-    def __init__(self):
-        self.mainTitle = 'Title'
-        self.mainPrice = 'Price'
-        self.mainCurrency = 'Currency'
-        self.mainCategory = 'Category'
-        self.date = 'Date'
+class DataResult:
+    def __init__(self, status, message, data):
+        self.status = bool(status)
+        self.message = message
+        self.data = data
 
-    def as_list(self):
-        return_list = [self.mainTitle, self.mainPrice, self.mainCurrency, self.mainCategory, self.date]
-        return return_list
+    def to_dict(self):
+        return dict(status=self.status, message=self.message, data=self.data)
+
+
+
